@@ -1,103 +1,137 @@
-// script1.js
 
-// Menambah baris input kategori dan nominal pengeluaran
+
 function addExpense() {
-    const expenseDetails = document.getElementById("expenseDetails");
-    const expenseRow = document.createElement("div");
-    expenseRow.className = "expense-row";
-
-    expenseRow.innerHTML = `
+    const detailDiv = document.createElement('div');
+    detailDiv.innerHTML = `
         <label>Kategori:</label>
         <input type="text" class="category" required>
         <label>Nominal:</label>
         <input type="number" step="0.01" class="amount" required>
-        <button type="button" class="remove-btn" onclick="removeExpense(this)">Hapus</button>
     `;
-
-    expenseDetails.appendChild(expenseRow);
+    document.getElementById('expenseDetails').appendChild(detailDiv);
 }
 
-// Menghapus baris input kategori dan nominal pengeluaran
-function removeExpense(button) {
-    const expenseRow = button.parentNode;
-    expenseRow.parentNode.removeChild(expenseRow);
-}
+document.getElementById('dataForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const salary = document.getElementById('salary').value;
+    const totalExpenses = document.getElementById('totalExpenses').value;
+    const categories = Array.from(document.querySelectorAll('.category')).map(input => input.value);
+    const amounts = Array.from(document.querySelectorAll('.amount')).map(input => parseFloat(input.value));
 
-// Fungsi untuk mengirim data ke server
-async function saveData(data) {
-    try {
-        const response = await fetch("save_data.php", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data),
-        });
-
-        const result = await response.json();
-        if (result.success) {
-            alert(result.message);
+    fetch('save_data.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ salary, totalExpenses, categories, amounts })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Data berhasil disimpan!');
+            loadChart();
         } else {
-            alert(`Error: ${result.error}`);
+            alert('Gagal menyimpan data!');
         }
+    });
+});
+
+function loadChart() {
+    fetch('get_chart_data.php')
+        .then(response => response.json())
+        .then(data => {
+            const options = {
+                series: [{
+                    name: 'Pengeluaran',
+                    data: data.amounts
+                }],
+                chart: {
+                    height: 350,
+                    type: 'bar',
+                },
+                xaxis: {
+                    categories: data.categories,
+                }
+            };
+
+            const chart = new ApexCharts(document.querySelector("#chart1"), options);
+            chart.render();
+        });
+}
+
+loadChart();
+
+function removeExpense(button) {
+    const row = button.parentElement; // Mengambil elemen parent (div) dari tombol
+    row.remove(); // Menghapus elemen row
+}
+
+
+// Fungsi untuk mendapatkan nama bulan secara real-time
+function getMonthName() {
+    const bulan = [
+        "Januari", "Februari", "Maret", "April", "Mei", "Juni", 
+        "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+    ];
+    const tanggal = new Date();
+    return bulan[tanggal.getMonth()];
+}
+
+// Tampilkan nama bulan pada elemen
+document.getElementById("current-month").textContent = "Bulan: " + getMonthName();
+
+// Fungsi untuk merender chart
+function renderChart(data) {
+    var options = {
+        series: [{
+            name: 'Pengeluaran',
+            data: data
+        }],
+        chart: {
+            height: 350,
+            type: 'bar'
+        },
+        xaxis: {
+            categories: ['Groceries', 'Fashion', 'Makanan', 'Transportasi', 'Hiburan']
+        },
+        title: {
+            text: "Pengeluaran per Kategori",
+            align: "center"
+        }
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+    return chart; // Return chart instance
+}
+
+// Data dummy untuk pengeluaran (replace dengan data dari database)
+const dummyData = [200000, 300000, 150000, 100000, 50000];
+
+// Render chart pertama kali
+let currentChart = renderChart(dummyData);
+
+// Fungsi untuk menghapus chart
+document.getElementById("delete-chart-btn").addEventListener("click", function() {
+    if (currentChart) {
+        currentChart.destroy(); // Hapus chart
+        document.querySelector("#chart").innerHTML = ""; // Bersihkan container
+    }
+});
+
+// Ambil data dari server
+async function fetchMonthlyData() {
+    try {
+        const response = await fetch("getMonthlyData.php");
+        const result = await response.json();
+        return result;
     } catch (error) {
-        console.error("Error saving data:", error);
-        alert("Terjadi kesalahan saat menyimpan data.");
+        console.error("Gagal mengambil data:", error);
     }
 }
 
-// Event listener untuk formulir
-document.getElementById("dataForm").addEventListener("submit", async function (event) {
-    event.preventDefault();
-
-    const salary = parseFloat(document.getElementById("salary").value);
-    const totalExpenses = parseFloat(document.getElementById("totalExpenses").value);
-    const expenseRows = document.querySelectorAll(".expense-row");
-
-    const expenses = Array.from(expenseRows).map(row => ({
-        category: row.querySelector(".category").value,
-        amount: parseFloat(row.querySelector(".amount").value),
-    }));
-
-    const data = {
-        salary: salary,
-        totalExpenses: totalExpenses,
-        expenses: expenses,
-    };
-
-    await saveData(data);
-    updateChart(expenses); // Perbarui chart setelah data disimpan
+// Render chart dengan data dari server
+fetchMonthlyData().then(result => {
+    if (result) {
+        currentChart = renderChart(result.data);
+    }
 });
 
-// Fungsi untuk memperbarui grafik menggunakan ApexCharts
-function updateChart(expenses) {
-    const categories = expenses.map(expense => expense.category);
-    const amounts = expenses.map(expense => expense.amount);
-
-    const options = {
-        chart: {
-            type: "pie",
-        },
-        series: amounts,
-        labels: categories,
-        responsive: [{
-            breakpoint: 480,
-            options: {
-                chart: {
-                    width: 300,
-                },
-                legend: {
-                    position: "bottom",
-                },
-            },
-        }],
-    };
-
-    const chart = new ApexCharts(document.getElementById("chart"), options);
-    chart.render();
-}
-
-// Menghapus grafik yang ada
-document.getElementById("delete-chart-btn").addEventListener("click", function () {
-    const chartContainer = document.getElementById("chart");
-    chartContainer.innerHTML = ""; // Menghapus grafik
-    alert("Chart berhasil dihapus.");
-});

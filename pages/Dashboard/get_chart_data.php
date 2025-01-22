@@ -1,38 +1,22 @@
 <?php
-// get_chart_data.php
+$conn = new mysqli("localhost", "root", "", "user_chart");
+$monthYear = date('Y-m');
 
-header('Content-Type: application/json');
+$result = $conn->query("
+    SELECT category, SUM(amount) as total_amount 
+    FROM expense_details 
+    JOIN user_data ON user_data.id = expense_details.user_data_id 
+    WHERE user_data.month_year = '$monthYear'
+    GROUP BY category
+");
 
-// Sambungkan ke database
-$host = 'localhost'; // Ganti dengan host database Anda
-$dbname = 'user_chart'; // Ganti dengan nama database Anda
-$username = 'root'; // Ganti dengan username database Anda
-$password = ''; // Ganti dengan password database Anda
+$categories = [];
+$amounts = [];
 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // Query untuk mendapatkan data pengeluaran per kategori
-    $query = $pdo->prepare("SELECT kategori, SUM(nominal) as total_nominal FROM pengeluaran GROUP BY kategori");
-    $query->execute();
-
-    $result = $query->fetchAll(PDO::FETCH_ASSOC);
-
-    // Format data untuk grafik
-    $chartData = [
-        "categories" => [],
-        "series" => []
-    ];
-
-    foreach ($result as $row) {
-        $chartData["categories"][] = $row["kategori"];
-        $chartData["series"][] = $row["total_nominal"];
-    }
-
-    // Kembalikan data dalam format JSON
-    echo json_encode($chartData);
-} catch (PDOException $e) {
-    echo json_encode(["error" => $e->getMessage()]);
+while ($row = $result->fetch_assoc()) {
+    $categories[] = $row['category'];
+    $amounts[] = $row['total_amount'];
 }
+
+echo json_encode(["categories" => $categories, "amounts" => $amounts]);
 ?>

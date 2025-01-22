@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,18 +10,39 @@
     <link rel="stylesheet" href="Style1.css">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=KoHo:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    
+<!-- --!fonts -->
+<!-- KoHo -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=KoHo:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 
-    <!-- Boxicons and Remix Icons -->
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+<!-- /*Playfair Display*/ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=KoHo:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+<!-- /*boxcoin -->
+<link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <!-- /*remixicon -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+
+<!-- /*SVG -->
+<link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+        rel="stylesheet"
+    />
+
 </head>
 <body>
 
 <!-- Navbar -->
+
 <nav class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">FinancialCare</a>
@@ -34,9 +56,15 @@
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Account</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Setting</a></li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Account</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Setting</a>
+          </li>
         </ul>
         <form class="d-flex mt-3" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -47,7 +75,7 @@
   </div>
 </nav>
 
-<!-- Form and Chart -->
+<!-- tester -->
 <div class="container">
     <div class="form-container">
         <h1>FinancialCare</h1>
@@ -72,17 +100,18 @@
         </form>
     </div>
     <div class="chart-container1">
-        <div id="chart1-container"><h2 class="chart1">Bulan: Januari</h2></div>
+        <div id="chart1"><h2 class="chart1" id="current-month">Bulan: Januari</h2></div>
     </div>
 </div>
 
 <div id="chart-container">
     <div id="chart-title">
-        <h2>Bulan: Januari</h2>
+        <h2 id="current-month">Bulan: Januari</h2>
     </div>
     <div id="chart"></div>
     <button id="delete-chart-btn" class="remove-btn">Hapus Chart</button>
 </div>
+
 
 <script src="script1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

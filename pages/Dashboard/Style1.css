@@ -1,130 +1,160 @@
-/* Style1.css */
 
-/* Umum */
 body {
-    font-family: 'Quicksand', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
-    padding-top: 70px; /* Menghindari tumpang tindih dengan navbar */
-    background-color: #f9f9f9;
-    color: #333;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2b2d42;
 }
-
-h1, h2, h3 {
-    font-family: 'KoHo', sans-serif;
-    color: #4a4a4a;
-}
-
+/* Flexbox untuk pengaturan layout */
 .container {
-    max-width: 1200px;
-    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 20px;
-    background: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    background-color: #1e1e2f;
+    border-radius: 15px;
+    gap: 20px;
 }
 
-/* Navbar */
-.navbar {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-brand {
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-.search-btn {
-    color: white;
-    padding: 5px 15px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.search-btn:hover {
-    background-color: #8400cc;
-}
-
-/* Formulir */
+/* Kolom form */
 .form-container {
-    margin-bottom: 30px;
+    flex: 1;
 }
 
-label {
-    font-weight: 500;
-    display: block;
+/* Kolom chart */
+.chart-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form-container h1, .form-container h3 {
+    text-align: left;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.form-container label {
+    display: inline-block;
+    width: 120px;
     margin-bottom: 5px;
+    color: #fff;
 }
 
-input[type="number"],
-input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
+.form-container input {
+    padding: 10px;
+    margin-bottom: 10px;
     border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
+    border-radius: 5px;
+    background: #3d3f57;
+    color: #fff;
+    width: calc(100% - 130px);
 }
 
-button {
-    background-color: #a30dff;
-    color: white;
+.form-container button {
+    margin-top: 10px;
     padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1rem;
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #8400cc;
+.form-container .remove-btn {
+    margin-left: 10px;
+    background-color: #ff4c4c;
 }
 
-/* Baris Pengeluaran */
-.expense-row {
+.form-container .remove-btn:hover {
+    background-color: #d14040;
+}
+
+.form-container button:hover {
+    background-color: #0056b3;
+}
+
+.form-container .expense-row {
     display: flex;
-    gap: 15px;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.expense-row input {
-    flex: 1;
+.chart-container1 {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.remove-btn {
-    background-color: #ff4d4d;
-    font-size: 0.9rem;
+#chart1 {
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
 }
 
-.remove-btn:hover {
-    background-color: #cc0000;
+
+
+.back {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #fff;
 }
 
-/* Grafik */
-.chart-container1, #chart-container {
+
+.search-btn :hover{
+    background-color: #a30dff;
+    transform: scale(1.10);
+    box-shadow: 0 0 10px #a30dff;
+    color: #fff;
+}
+
+
+
+
+/* Chart */
+#chart-container {
+    background-color: #2a2b3d;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: white;
     margin-top: 20px;
     text-align: center;
 }
 
-#chart {
-    max-width: 100%;
-    margin: 0 auto;
+#chart-title {
+    margin-bottom: 10px;
+}
+
+#current-month {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 #delete-chart-btn {
     margin-top: 20px;
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/* Responsif */
-@media (max-width: 768px) {
-    .expense-row {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    button {
-        width: 100%;
-    }
+#delete-chart-btn:hover {
+    background-color: #d14040;
 }
+
