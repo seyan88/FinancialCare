@@ -1,0 +1,138 @@
+
+.container{
+    position: relative;
+    width: 400px;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('../../src/background.jpg') no-repeat;
+    background-size: cover;
+}
+
+.formlogin{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 5%;
+    
+    
+    }
+
+    .formlogin label {
+        font-size: 0.8em;
+        margin-bottom: 5px;
+        margin-left: 15%;
+        color: white;
+        font-family: Koho, sans-serif;
+    }
+    
+    .formlogin input[type="text"],
+    .formlogin input[type="password"] {
+        width: 70%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 1em;
+        transition: all 0.3s ease;
+        margin-left: 15%;
+       
+    }
+    
+    .formlogin input[type="text"]:focus,
+    .formlogin input[type="password"]:focus {
+        border-color: #0066cc;
+        box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
+        outline: none;
+        transform: scale(1.02);
+    }
+
+    .formlogin input[type="submit"] {
+        width: 30%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 1em;
+        transition: all 0.3s ease;
+        margin-left: 37%;
+        margin-top: 2%;
+        background-color:  #1f1f1f;
+        color: white;
+        font-family: Koho, sans-serif;
+    }
+    
+    .formlogin input[type="submit"]:hover {
+        background-color: #a30dff ;
+        cursor: pointer;
+    
+    }
+
+    h2{
+        color: white;
+        font-family: Koho, sans-serif;
+        text-align: center;
+        margin-top: 10%;
+
+    }
+
+    .registerteks{
+        color: white;
+        font-family: Koho, sans-serif;
+        
+        margin-top: 5%;
+        margin-left: 17%;
+    }
+
+
+    
+
+
+/* Tambahkan styling untuk modal */
+.modal {
+    display: none; /* Hidden secara default */
+    position: fixed; /* Tetap di tempat (dapat menggulir) */
+    z-index: 1; /* Terletak di atas */
+    left: 0;
+    top: 0;
+    width: 100%; /* Penuh lebar */
+    height: 100%; /* Penuh tinggi */
+    overflow: auto; /* Aktifkan gulir jika diperlukan */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 15% dari atas dan seimbang di tengah */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%; /* Dapat disesuaikan */
+    border-radius: 18px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

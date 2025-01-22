@@ -1,0 +1,333 @@
+*{
+    margin: 0em;
+    padding: 0em;
+    box-sizing: border-box;
+}
+
+
+
+header{
+    position:fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 34px 12%;
+    background: transparent;
+
+
+}
+
+
+.logo{
+    font-size: 30px;
+    font-weight: 700;
+    color: #a30dff;
+    text-decoration: none;
+    font-family: 'KoHo', sans-serif;
+}
+
+.navlist{
+    display: flex;
+    list-style-type: none
+    
+}
+
+.navlist a{
+    font-size: 15px;
+    color: white;
+    margin-left: 60px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    font-family: 'KoHo', sans-serif;
+    text-decoration: none;
+    transition: all .55s ease;
+}
+ .navlist a:hover{
+    border-bottom: 2px solid #a30dff;
+
+ }
+
+ #menu-icon{
+    font-size: 35px;
+    color: white;
+    z-index: 10001;
+    cursor: pointer;
+    display: none;
+   
+ }
+
+
+
+.container-0{
+    display: flex;
+    border-radius: 0,5em;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 200px;
+    background-color: #434343;
+}
+
+.container-1{
+   height: 100%;
+   width: 100%;
+   min-height: 100vh;
+   background: linear-gradient(245.59deg, #8d8d8d  0%,#373737 28.53%, #161616 70.49%);
+   position: relative;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   align-items: center;
+   gap: 2rem
+}
+.container-1{
+    padding: 0 10%;
+}
+
+.headcontent-1 h5{
+    
+    font-size: 14px;
+    font-weight:400;
+    color: white;   
+    margin-bottom: 4px;
+    transform: translateY((50px));
+    filter: blur(50px);
+    opacity:0;
+    animation: showDetail 0.5s 1s linear 1 forwards;
+}
+.headcontent-1 h1{
+    font-family: "Quicksand", serif;
+  font-optical-sizing: 90px;
+  line-height: 1;
+  color:#a30dff;
+  margin: 0 0 15px;
+  transform: translateY((50px));
+    filter: blur(50px);
+    opacity:0;
+    animation: showDetail 0.5s 1s linear 1 forwards;
+}
+
+.container-1 h3{
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0px;
+    transform: translateY((50px));
+    filter: blur(50px);
+    opacity:0;
+    animation: showDetail 0.5s 1s linear 1 forwards;
+    
+}
+
+.container-1 p{
+    color: white;
+    font-size: 15px;
+    line-height: 15px;
+    margin-bottom: 50px;
+    transform: translateY((50px));
+    filter: blur(50px);
+    opacity:0;
+    animation: showDetail 0.5s 1s linear 1 forwards;
+}
+
+.img-1{
+    width: 500px;
+    height: auto;
+    transform: translateY((50px));
+    filter: blur(50px);
+    opacity:0;
+    animation: showDetail 0.5s 1s linear 1 forwards;
+
+}
+
+.container-1 a{
+    display: inline-block;
+    color: white;
+    background-color: #a30dff;
+    font-size: 15px;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-weight: 500;
+    border: 4px solid transparent;
+    text-transform: uppercase;
+    transition: all .55s ease;
+    border-radius: 18px;
+    line-height: 1.4;
+    transform: translateY((50px));
+    filter: blur(50px);
+    opacity:0;
+    animation: showDetail 0.5s 1s linear 1 forwards;
+
+}
+
+.container-1 a:hover{
+    background: transparent;
+    border: 4px solid #a20cff61;
+    transform: translateX(8px);
+}
+
+.icons{
+    position: absolute;
+    top: 30%;
+    padding: 0px;
+    transform: translateX(1150%);
+    border: 1px solid white transparent;
+    margin: 1px;
+     
+}
+
+.ri-instagram-line{
+position: relative;
+transform: translateX(200%);
+opacity: 0;
+animation: showDetail 1s 2s linear 1 forwards;
+
+}
+.ri-whatsapp-line{
+    position: relative;
+    transform: translateX(200%);
+    opacity: 0;
+    animation: showDetail 0.8s 2s linear 1 forwards;
+    
+    }
+    .ri-twitter-line{
+        position: relative;
+        transform: translateX(200%);
+        opacity: 0;
+        animation: showDetail 0.6s 2s linear 1 forwards;
+        
+        }
+
+        .ri-linkedin-line{
+            position: relative;
+            transform: translateX(200%);
+            opacity: 0;
+            animation: showDetail 0.4s 2s linear 1 forwards;
+            
+            }
+
+.icons a{
+    text-decoration:none;
+}
+
+.icons i{
+    display: block;
+    margin: 20px 0;
+    color: white;
+    font-size: 20px;
+    transition: all .50s ease;
+    
+}
+.icons i:hover{
+    transform:scale3d(1.5,1.5,1.5);
+    color: #a20dffb9;
+}
+
+
+@keyframes showDetail{
+    to{
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+    }
+
+@media (max-width: 1440px){
+    header{
+        padding: 15px 3%;
+        transition: .2s;
+    }
+    .icons{
+        padding: 0 3%;
+        top: 40%;
+        transition: .2s;
+        transform: translateX(1150%);
+    }
+
+}
+
+@media (max-width: 1240px){
+    header{
+        padding: 15px 3%;
+        transition: .2s;
+    }
+    .icons{
+        padding: 0 3%;
+        transition: .2s;
+        transform: translateX(1140%);
+
+    }
+}
+
+@media (max-width: 984px){
+    .container-1{
+        padding: 0 10%;
+        transition: .2s;
+    }
+    .icons{
+        top: 38%;
+        padding: 0 3%;
+        transition: 0.2s;
+        
+        
+        transform: translateX(1080%);
+        
+    }
+    .icons i{
+        font-size: 20px;
+        margin: 7px 0;
+    }
+    .icons i:hover{
+        transform:scale3d(1.5,1.5,1.5);
+        color: #a20dffb9;
+    }
+
+}
+    
+@media (max-width: 834px){
+    .container-1{
+        
+        padding: 0 10%;
+        transition: .2s;
+    }
+    .icons{
+        top: 39%;
+        padding: 0 3%;
+        transition: 0.2s;
+        
+        
+        transform: translateX(1030%);
+        
+    }
+    .icons i{
+        font-size: 20px;
+        margin: 7px 0;
+    }
+    .icons i:hover{
+        transform:scale3d(1.5,1.5,1.5);
+        color: #a20dffb9;
+    }
+    .headcontent-1 h1{
+        font-size: 30px;
+        margin: 0 0 15px;
+    }
+    .headcontent-1 h5{
+        font-size: 13px;
+        margin: 0 0 15px;
+    }
+    .headcontent-1 p{
+        font-size: 10px;
+    }
+    .headcontent-1 a{
+        top: 30%;
+        font-size: 10px;
+    }
+
+    .img-1{
+        width: 100%;
+        height: auto;
+    }
+}

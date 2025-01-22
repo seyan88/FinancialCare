@@ -1,0 +1,132 @@
+.error { color: red; }
+
+.container{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    
+}
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('../../src/background.jpg') no-repeat;
+    background-size: cover;
+}
+
+
+
+.formregister{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.formregister label{
+    font-size: 0.8em;
+        margin-bottom: 5px;
+        margin-left: 15%;
+        color: white;
+        font-family: Koho, sans-serif;
+}
+
+.formregister input[type="text"],
+.formregister input[type="email"],
+.formregister select,
+.formregister input[type="username"],
+.formregister input[type="password"] {
+    width: 70%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    margin-left: 15%;
+   
+}
+
+.formregister input[type="text"]:focus,
+.formregister input[type="email"]:focus,
+.formregister select:focus,
+.formregister input[type="username"]:focus,
+.formregister input[type="password"]:focus {
+    outline: none;
+    border-color: #a30dff;
+    box-shadow: 0 0 10px #a30dff;
+    transform: scale(1.01);
+}
+
+.formregister input[type="submit"] {
+   
+    margin: 0 auto;
+    margin-top: 5px;
+    padding: 10px 20px;
+    background-color: #a30dff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.formregister input[type="submit"]:hover {
+    background-color: #a30dff;
+    transform: scale(1.10);
+    box-shadow: 0 0 10px #a30dff;
+    color: #fff;
+
+}
+
+.formregister input[type="submit"]:active {
+    transform: scale(0.9);
+}
+
+
+h2{
+    color: white;
+    font-family: Koho, sans-serif;
+    text-align: center;
+    margin-top: 5%;
+
+}
+
+.back .ri-arrow-left-circle-fill{
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    position: absolute;
+    left: 2%;
+    top: 5%;
+
+}
+
+.back .ri-arrow-left-circle-fill:hover{
+    color: #a30dff;
+    transform: scale(1.15) translatex(-5px);
+    
+    box-shadow: 0 0 10px #a30dff;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+
+}
+.back .ri-arrow-left-circle-fill:active{
+    transform: scale(0.8);
+
+
+
+
+}
