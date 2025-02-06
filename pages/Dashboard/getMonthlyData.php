@@ -1,28 +1,57 @@
 <?php
-header('Content-Type: application/json');
-
 // Koneksi ke database
-$conn = new mysqli("localhost", "username", "password", "nama_database");
+$conn = new mysqli("localhost", "root", "", "user_chart");
 
+// Cek koneksi
 if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
-$bulan = date('m'); // Bulan saat ini
-$tahun = date('Y'); // Tahun saat ini
+// Ambil parameter bulan dari URL, atau gunakan bulan saat ini
+$monthYear = isset($_GET['month_year']) ? $_GET['month_year'] : date('Y-m-d');
 
-$query = "SELECT kategori, SUM(nominal) as total FROM pengeluaran WHERE MONTH(tanggal) = '$bulan' AND YEAR(tanggal) = '$tahun' GROUP BY kategori";
-$result = $conn->query($query);
+// Query untuk mengambil data pengeluaran berdasarkan kategori
+$result = $conn->query("
+    SELECT category, SUM(amount) as total_amount 
+    FROM expense_details 
+    JOIN user_data ON user_data.id = expense_details.user_data_id 
+    WHERE user_data.month_year = '$monthYear'
+    GROUP BY category
+");
 
-$data = [];
+// Inisialisasi array untuk kategori dan jumlah
 $categories = [];
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $categories[] = $row['kategori'];
-        $data[] = (int)$row['total'];
-    }
+$amounts = [];
+
+// Proses hasil query
+while ($row = $result->fetch_assoc()) {
+    $categories[] = $row['category'];
+    $amounts[] = $row['total_amount'];
 }
 
-echo json_encode(['categories' => $categories, 'data' => $data]);
-$conn->close();
+// Mengirimkan hasil dalam format JSON
+header('Content-Type: application/json');
+echo json_encode(["categories" => $categories, "amounts" => $amounts]);
+?>
+
+
+<?php
+// URL endpoint untuk data JSON
+$url = "http://localhost/pages/Dashboard/getMonthlyData.php?month_year=2025-01";
+
+// Mengambil data JSON dari URL
+$jsonData = file_get_contents($url);
+
+// Mengurai data JSON menjadi array asosiatif
+$data = json_decode($jsonData, true);
+
+// Memproses data
+if (!empty($data)) {
+    echo "Kategori dan Total Pengeluaran:\n";
+    foreach ($data['categories'] as $index => $category) {
+        echo "- " . $category . ": " . $data['amounts'][$index] . "\n";
+    }
+} else {
+    echo "Tidak ada data untuk bulan ini.";
+}
 ?>

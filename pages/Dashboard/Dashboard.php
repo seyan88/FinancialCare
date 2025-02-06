@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+  header("Location: ../Login/Login.php");
+  exit();
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +47,7 @@
     />
 
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
 
 <!-- Navbar -->
 
@@ -60,7 +68,7 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Account</a>
+            <a class="nav-link" href="Account/index.php">Account</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Setting</a>
@@ -76,6 +84,7 @@
 </nav>
 
 <!-- tester -->
+ <section>
 <div class="container">
     <div class="form-container">
         <h1>FinancialCare</h1>
@@ -96,21 +105,93 @@
             </div>
             <button type="button" onclick="addExpense()">Tambah Kategori</button>
             <br><br>
-            <button type="submit">Simpan Data</button>
+            <button type="submit" name="submit">Simpan Data</button>
         </form>
     </div>
     <div class="chart-container1">
-        <div id="chart1"><h2 class="chart1" id="current-month">Bulan: Januari</h2></div>
+        <div id="chart1"><h2 class="chart1" id="current-month1">Bulan: Januari</h2></div>
     </div>
 </div>
+</section>
 
-<div id="chart-container">
-    <div id="chart-title">
-        <h2 id="current-month">Bulan: Januari</h2>
-    </div>
-    <div id="chart"></div>
-    <button id="delete-chart-btn" class="remove-btn">Hapus Chart</button>
+
+
+
+
+<!-- 
+<section>
+  <div class="container">
+      <div class="chart-container">
+        <div class="form-container">
+          <h2>Menambah Pengeluaran</h2>
+          <p>Ini untuk menambah batang pengeluaran baru.</p>
+            <form id="dataForm">
+              <label>Kategori:</label>
+              <input type="text" id="category" required>
+              <label>Nominal:</label>
+              <input type="number" id="amount" required>
+              <button type="submit" name="submit">Tambah Pengeluaran</button>
+            </form>
+        </div>
+      </div>
+  </div>
+</section> -->
+<!-- 
+<section class="expense-section">
+    <div class="container">
+        <h2>Tambah Detail Pengeluaran</h2>
+        <form id="expenseForm">
+            <label>Kategori:</label>
+            <input type="text" id="expenseCategory" required>
+            <label>Nominal:</label>
+            <input type="number" step="0.01" id="expenseAmount" required>
+            <label>Deskripsi:</label>
+            <input type="text" id="expenseDescription" required>
+            <button type="submit">Tambah Pengeluaran</button>
+        </form>
 </div>
+<div class="expense-section">
+        <h3>Daftar Pengeluaran</h3>
+        <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Kategori</th>
+                    <th>Nominal</th>
+                    <th>Deskripsi</th>
+                </tr>
+            </thead>
+            <tbody id="expenseList"> -->
+                <!-- Data pengeluaran akan ditampilkan di sini -->
+            <!-- </tbody>
+        </table>
+    </div>
+    </div>
+    </div>
+</section>
+ -->
+
+ 
+ <section>
+    <div class="container">
+        <div class="expense-indicator">
+            <h4>Indikator Keuangan</h4>
+            <p id="warningMessage" class="warning-text"></p>
+            <ul id="expensest"></ul>
+        </div>
+        
+        <div class="expense-container">
+            <h3>Daftar Pengeluaran</h3>
+            <div class="expense-list-wrapper">
+                <ul id="expenseList"></ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
 
 
 <script src="script1.js"></script>
@@ -118,3 +199,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>
+

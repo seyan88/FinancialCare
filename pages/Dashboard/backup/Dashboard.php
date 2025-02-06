@@ -100,7 +100,7 @@
         </form>
     </div>
     <div class="chart-container1">
-        <div id="chart1"><h2 class="chart1" id="current-month">Bulan: Januari</h2></div>
+        <div id="chart1"><h2 class="chart1" id="current-month1">Bulan: Januari</h2></div>
     </div>
 </div>
 

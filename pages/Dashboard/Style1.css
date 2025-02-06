@@ -2,12 +2,14 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
+    margin-top: 70px;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: auto;
     background-color: #2b2d42;
+    flex-direction: column;
 }
 /* Flexbox untuk pengaturan layout */
 .container {
@@ -39,6 +41,11 @@ body {
     margin-bottom: 20px;
     color: #fff;
 }
+
+#current-month1{
+    color: #fff;
+}
+
 
 .form-container label {
     display: inline-block;
@@ -158,3 +165,83 @@ body {
     background-color: #d14040;
 }
 
+/* kontener di bawah  */
+    section {
+    display: flex;
+    flex-direction: column; /* Menyusun elemen secara vertikal */
+   align-items: center; /* Memposisikan elemen ke tengah */
+    margin-top: 1%;
+  }
+
+/*
+.expense-section {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.expense-list {
+    max-height: 200px; /* Membatasi tinggi daftar pengeluaran */
+   /* overflow-y: auto;  /* Menambahkan scroll jika kontennya banyak */
+   /* border: 1px solid #ccc;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+  */
+
+
+
+
+  /* CSS BARU UNTUK DAFTAR LIST*/
+
+  .expense-indicator {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    
+}
+
+.warning-text {
+    font-weight: bold;
+    color: #d9534f; /* Default merah untuk warning */
+}
+
+.expense-container {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.expense-list-wrapper {
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+#expenseList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#expenseList li {
+    background: #eef2ff;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#expenseList li span {
+    font-weight: bold;
+}
+
+/* CSS Indikator bar */
