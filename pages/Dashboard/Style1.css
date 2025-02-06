@@ -1,177 +1,169 @@
-
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    margin-top: 70px;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    background-color: #2b2d42;
-    flex-direction: column;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  margin-top: 70px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  background-color: #2b2d42;
+  flex-direction: column;
 }
 /* Flexbox untuk pengaturan layout */
 .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #1e1e2f;
-    border-radius: 15px;
-    gap: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #1e1e2f;
+  border-radius: 15px;
+  gap: 20px;
 }
 
 /* Kolom form */
 .form-container {
-    flex: 1;
+  flex: 1;
 }
 
 /* Kolom chart */
 .chart-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
-.form-container h1, .form-container h3 {
-    text-align: left;
-    margin-bottom: 20px;
-    color: #fff;
+.form-container h1,
+.form-container h3 {
+  text-align: left;
+  margin-bottom: 20px;
+  color: #fff;
 }
 
-#current-month1{
-    color: #fff;
+#current-month1 {
+  color: #fff;
 }
-
 
 .form-container label {
-    display: inline-block;
-    width: 120px;
-    margin-bottom: 5px;
-    color: #fff;
+  display: inline-block;
+  width: 120px;
+  margin-bottom: 5px;
+  color: #fff;
 }
 
 .form-container input {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background: #3d3f57;
-    color: #fff;
-    width: calc(100% - 130px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #3d3f57;
+  color: #fff;
+  width: calc(100% - 130px);
 }
 
 .form-container button {
-    margin-top: 10px;
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .form-container .remove-btn {
-    margin-left: 10px;
-    background-color: #ff4c4c;
+  margin-left: 10px;
+  background-color: #ff4c4c;
 }
 
 .form-container .remove-btn:hover {
-    background-color: #d14040;
+  background-color: #d14040;
 }
 
 .form-container button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .form-container .expense-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .chart-container1 {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 #chart1 {
-    width: 100%;
-    height: 100%;
-    max-height: 500px;
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
 }
-
-
 
 .back {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    color: #fff;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #fff;
 }
 
-
-.search-btn :hover{
-    background-color: #a30dff;
-    transform: scale(1.10);
-    box-shadow: 0 0 10px #a30dff;
-    color: #fff;
+.search-btn :hover {
+  background-color: #a30dff;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #a30dff;
+  color: #fff;
 }
-
-
-
 
 /* Chart */
 #chart-container {
-    background-color: #2a2b3d;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    color: white;
-    margin-top: 20px;
-    text-align: center;
+  background-color: #2a2b3d;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  color: white;
+  margin-top: 20px;
+  text-align: center;
 }
 
 #chart-title {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 #current-month {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 #delete-chart-btn {
-    margin-top: 20px;
-    background-color: #ff4c4c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  margin-top: 20px;
+  background-color: #ff4c4c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 #delete-chart-btn:hover {
-    background-color: #d14040;
+  background-color: #d14040;
 }
 
 /* kontener di bawah  */
-    section {
-    display: flex;
-    flex-direction: column; /* Menyusun elemen secara vertikal */
-   align-items: center; /* Memposisikan elemen ke tengah */
-    margin-top: 1%;
-  }
+section {
+  display: flex;
+  flex-direction: column; /* Menyusun elemen secara vertikal */
+  align-items: center; /* Memposisikan elemen ke tengah */
+  margin-top: 1%;
+}
 
 /*
 .expense-section {
@@ -185,63 +177,64 @@ body {
 
 .expense-list {
     max-height: 200px; /* Membatasi tinggi daftar pengeluaran */
-   /* overflow-y: auto;  /* Menambahkan scroll jika kontennya banyak */
-   /* border: 1px solid #ccc;
+/* overflow-y: auto;  /* Menambahkan scroll jika kontennya banyak */
+/* border: 1px solid #ccc;
     padding: 10px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
 }
   */
 
+/* CSS BARU UNTUK DAFTAR LIST*/
 
-
-
-  /* CSS BARU UNTUK DAFTAR LIST*/
-
-  .expense-indicator {
-    background: #f8f9fa;
-    padding: 15px;
-    border-radius: 12px;
-    text-align: center;
-    
+.expense-indicator {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
 }
 
 .warning-text {
-    font-weight: bold;
-    color: #d9534f; /* Default merah untuk warning */
+  font-weight: bold;
+  color: #d9534f; /* Default merah untuk warning */
 }
 
 .expense-container {
-    background: #ffffff;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .expense-list-wrapper {
-    max-height: 250px;
-    overflow-y: auto;
-    padding-right: 10px;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 10px;
 }
 
 #expenseList {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 #expenseList li {
-    background: #eef2ff;
-    padding: 12px;
-    margin-bottom: 8px;
-    border-radius: 18px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 16px;
-    font-weight: 500;
+  background: #eef2ff;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 #expenseList li span {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 /* CSS Indikator bar */
+
+.salaryAmount {
+  font-weight: bold;
+  color: #007bff; /* Default biru untuk gaji */
+}

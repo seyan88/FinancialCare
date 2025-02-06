@@ -5,6 +5,8 @@ if(!isset($_SESSION['username'])){
   exit();
 }
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -59,13 +61,14 @@ if(!isset($_SESSION['username'])){
     </button>
     <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">FinancialCare</h5>
+      <i class="ri-user-line"></i>
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">   [ <?php echo htmlspecialchars($_SESSION['username']); ?> ] </h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="Dashboard.php">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="Account/index.php">Account</a>
@@ -109,8 +112,10 @@ if(!isset($_SESSION['username'])){
         </form>
     </div>
     <div class="chart-container1">
-        <div id="chart1"><h2 class="chart1" id="current-month1">Bulan: Januari</h2></div>
+    <div id="chart1">
+        <h2 class="chart1" id="current-month1">Bulan: ...</h2>
     </div>
+</div>
 </div>
 </section>
 
@@ -175,9 +180,20 @@ if(!isset($_SESSION['username'])){
  <section>
     <div class="container">
         <div class="expense-indicator">
-            <h4>Indikator Keuangan</h4>
-            <p id="warningMessage" class="warning-text"></p>
-            <ul id="expensest"></ul>
+          <div style="width: 100%; background-color: #ddd; border-radius: 10px; overflow: hidden; margin-bottom: 10px;">
+          <div id="expenseProgress" style="height: 30px; width: 0%; background-color: green; text-align: center; line-height: 30px; color: white; transition: width 0.5s;"></div>
+          </div>
+          <p id="warningMessage" style="font-weight: bold;"></p>
+          <div class="expense-container">
+            <h3>Detail Pengeluaran</h3>
+            
+              
+                <p id="salaryAmount"></p>
+                <p id="expenseAmount"></p>
+                <p id="remainingSalary"></p>
+              
+            
+          </div>
         </div>
         
         <div class="expense-container">
@@ -187,6 +203,9 @@ if(!isset($_SESSION['username'])){
             </div>
         </div>
     </div>
+</section>
+
+</section>
 </section>
 
 
